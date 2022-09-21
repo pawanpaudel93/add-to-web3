@@ -1,5 +1,5 @@
-<h1 align="center">⁂<br/>web3.storage</h1>
-<p align="center">Add a directory to web3.storage from an Action, and output it's IPFS Content ID.</p>
+<h1 align="center">⁂<br/>web3.storage & moralis</h1>
+<p align="center">Add a directory to web3.storage or moralis from an Action, and output it's IPFS Content ID.</p>
 
 ## Example usage
 
