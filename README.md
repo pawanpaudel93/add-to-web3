@@ -4,16 +4,16 @@
 ## Example usage
 
 ```yaml
-uses: web3-storage/add-to-web3@v2
+uses: pawanpaudel93/add-to-web3@v0.1
 id: web3
 with:
-  web3_token: ${{ secrets.WEB3_STORAGE_TOKEN }}
+  web3_token: ${{ secrets.WEB3_TOKEN }}
   path_to_add: 'dist'
 
 # "bafkreicysg23kiwv34eg2d7qweipxwosdo2py4ldv42nbauguluen5v6am"
 - run: echo ${{ steps.web3.outputs.cid }}
 
-# "https://dweb.link/ipfs/bafkreicysg23kiwv34eg2d7qweipxwosdo2py4ldv42nbauguluen5v6am"
+# "https://w3s.link/ipfs/bafkreicysg23kiwv34eg2d7qweipxwosdo2py4ldv42nbauguluen5v6am"
 - run: echo ${{ steps.web3.outputs.url }}
 ```
 
@@ -25,10 +25,16 @@ with:
 
 ### `web3_token`
 
-**Required** API token for web3.storage
+**Required** API token for web3.storage or moralis
 
 <details>
   <summary>Show advanced options: <code>wrap_with_directory</code>, <code>include_hidden</code>, <code>web3_api</code></summary>
+
+### `service`
+
+_Default_ `web3.storage`
+
+Service type either `web3.storage` or `moralis` to upload the path.
 
 ### `wrap_with_directory`
 
@@ -36,7 +42,7 @@ _Default_ `false`
 
 Should the `path_to_add` be wrapped in a diretory when creating the IPFS DAG. For most folks using this action the default of `false` is fine. 
 
-This is the opposite of the default that web3.storage uses, as this action is commonly used to add a directory that contains a static website to IPFS. In that case you want the path_to_add to become the root cid so you can host your site at `https://<cid>.ipfs.dweb.link` rather than `https://<cid>.ipfs.dweb.link/<path_to_add>`.
+This is the opposite of the default that web3.storage uses, as this action is commonly used to add a directory that contains a static website to IPFS. In that case you want the path_to_add to become the root cid so you can host your site at `https://<cid>.ipfs.w3s.link` rather than `https://<cid>.ipfs.w3s.link/<path_to_add>`.
 
 If you do want to capture the `path_to_add` path itself in the IPFS DAG then you want to set `wrap_with_directory:true`.
 
@@ -68,7 +74,7 @@ e.g. `bafkreicysg23kiwv34eg2d7qweipxwosdo2py4ldv42nbauguluen5v6am`
 ### `url`
 
 The IPFS gateway URL for the directory 
-e.g. `https://dweb.link/ipfs/bafkreicysg23kiwv34eg2d7qweipxwosdo2py4ldv42nbauguluen5v6am`
+e.g. `https://w3s.link/ipfs/bafkreicysg23kiwv34eg2d7qweipxwosdo2py4ldv42nbauguluen5v6am`
 
 
 ## Contibuting

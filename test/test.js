@@ -1,5 +1,5 @@
 // This contains an integration test that uploads the fixtures dir to web3.storage
-// You need to set the env var `INPUT_WEB3_TOKEN` to be a valid token for https://api-staging.web3.storage
+// You need to set the env var `INPUT_WEB3_TOKEN` to be a valid token for https://api-staging.web3.storage or Moralis
 //
 // Example
 // ```
@@ -10,6 +10,7 @@ const { addToWeb3, pickName } = require('../web3')
 const process = require('process')
 const cp = require('child_process')
 const path = require('path')
+require("dotenv/config")
 
 test('pickName', t => {
   const name = pickName({ repo: 'good/one', run: '101', sha: '6a8a00320d3e15207b1c8b161471e5ba78e464e1' })
@@ -24,7 +25,7 @@ test('addToWeb3', async t => {
     name: 'testing add-to-web3'
   })
   t.is(cid, 'bafybeifpw7nrh374rzfcxpaw3bkp6fr7djmujg5wvib6ma7i7n76t3k53q')
-  t.is(url, `https://dweb.link/ipfs/${cid}`)
+  t.is(url, `https://w3s.link/ipfs/${cid}`)
 })
 
 // shows how the runner will run a javascript action with env / stdout protocol
@@ -40,11 +41,11 @@ test('runs like an action', t => {
   const output = cp.execSync(`node ${ip}`, { env: process.env }).toString()
   // console.log(output)
   t.is(output, `Adding test/fixtures to https://api-staging.web3.storage
-https://dweb.link/ipfs/bafybeifpw7nrh374rzfcxpaw3bkp6fr7djmujg5wvib6ma7i7n76t3k53q
+https://w3s.link/ipfs/bafybeifpw7nrh374rzfcxpaw3bkp6fr7djmujg5wvib6ma7i7n76t3k53q
 
 ::set-output name=cid::bafybeifpw7nrh374rzfcxpaw3bkp6fr7djmujg5wvib6ma7i7n76t3k53q
 
-::set-output name=url::https://dweb.link/ipfs/bafybeifpw7nrh374rzfcxpaw3bkp6fr7djmujg5wvib6ma7i7n76t3k53q
+::set-output name=url::https://w3s.link/ipfs/bafybeifpw7nrh374rzfcxpaw3bkp6fr7djmujg5wvib6ma7i7n76t3k53q
 `)
 })
 
@@ -60,10 +61,10 @@ test('runs like an action (WRAP_WITH_DIRECTORY="true")', t => {
   const output = cp.execSync(`node ${ip}`, { env: process.env }).toString()
   // console.log(output)
   t.is(output, `Adding test/fixtures to https://api-staging.web3.storage
-https://dweb.link/ipfs/bafybeig2girrvm6wjis6xuqaqvoxhfejuk2bwv4bfzpjhlahsume26ufjy
+https://w3s.link/ipfs/bafybeig2girrvm6wjis6xuqaqvoxhfejuk2bwv4bfzpjhlahsume26ufjy
 
 ::set-output name=cid::bafybeig2girrvm6wjis6xuqaqvoxhfejuk2bwv4bfzpjhlahsume26ufjy
 
-::set-output name=url::https://dweb.link/ipfs/bafybeig2girrvm6wjis6xuqaqvoxhfejuk2bwv4bfzpjhlahsume26ufjy
+::set-output name=url::https://w3s.link/ipfs/bafybeig2girrvm6wjis6xuqaqvoxhfejuk2bwv4bfzpjhlahsume26ufjy
 `)
 })

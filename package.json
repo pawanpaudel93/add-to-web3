@@ -16,7 +16,7 @@
     "Filecoin"
   ],
   "scripts": {
-    "test": "ava --verbose",
+    "test": "ava --verbose --timeout 1m",
     "lint": "standard --verbose | snazzy",
     "lint:fix": "standard --fix",
     "prepare": "ncc build index.js -o dist --source-map --license licenses.txt",
@@ -25,11 +25,13 @@
   "dependencies": {
     "@actions/core": "^1.6.0",
     "files-from-path": "^0.2.2",
+    "moralis": "^2.5.3",
     "web3.storage": "^4.2.0"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.29.0",
     "ava": "^3.15.0",
+    "dotenv": "^16.0.2",
     "snazzy": "^9.0.0",
     "standard": "^16.0.4"
   },

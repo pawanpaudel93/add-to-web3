@@ -1,31 +1,35 @@
-name: 'Add to web3'
-description: 'Publish your files and websites to web3.storage'
+name: "Add to web3"
+description: "Publish your files and websites to web3.storage"
 author: olizilla
 branding:
-  icon: 'box'
-  color: 'white'
+  icon: "box"
+  color: "white"
 inputs:
   path_to_add:
-    description: 'Directory path to add to IPFS'
+    description: "Directory path to add to IPFS"
     required: true
-  include_hidden:
-    description: 'Include hidden files'
-    required: false
-    default: 'false'
   web3_token:
-    description: 'API token for web3.storage'
+    description: "API token for web3.storage or moralis"
     required: true
+  service:
+    description: "Upload directory to which service moralis or web3.storage"
+    required: true
+    default: "web3.storage"
+  include_hidden:
+    description: "Include hidden files"
+    required: false
+    default: "false"
   web3_api:
-    description: 'API URL'
+    description: "API URL"
     required: false
-    default: 'https://api.web3.storage'
+    default: "https://api.web3.storage"
   wrap_with_directory:
-    description: 'Boolean. Default: `false`. Should the path_to_add be wrapped in a diretory when creating the IPFS DAG. For most folks using this, the default of `false` is fine. If you want to add a single file and preserve the filename in the IPFS DAG you may want to set it to `true`.'
+    description: "Boolean. Default: `false`. Should the path_to_add be wrapped in a diretory when creating the IPFS DAG. For most folks using this, the default of `false` is fine. If you want to add a single file and preserve the filename in the IPFS DAG you may want to set it to `true`."
     required: false
-    default: 'false'
+    default: "false"
 outputs:
   cid:
-    description: 'The IPFS Content ID for the directory'
+    description: "The IPFS Content ID for the directory"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
