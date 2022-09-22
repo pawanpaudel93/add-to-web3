@@ -27,14 +27,14 @@ with:
 
 **Required** API token for web3.storage or moralis
 
-<details>
-  <summary>Show advanced options: <code>wrap_with_directory</code>, <code>include_hidden</code>, <code>web3_api</code></summary>
-
 ### `service`
 
 _Default_ `web3.storage`
 
 Service type either `web3.storage` or `moralis` to upload the path.
+
+<details>
+  <summary>Show advanced options: <code>wrap_with_directory</code>, <code>include_hidden</code>, <code>web3_api</code></summary>
 
 ### `wrap_with_directory`
 
